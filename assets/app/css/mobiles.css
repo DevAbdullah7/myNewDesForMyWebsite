@@ -1,0 +1,69 @@
+@media only screen and (max-width: 480px) {
+    html {
+        overflow-y: scroll;
+    }
+    body {
+        overflow: scroll;
+    }
+    .content {
+    }
+    .home .logo {
+        margin: 50px 0;
+    }
+    .home img {
+        width: 150px;
+    }
+    .home .homeContent::-webkit-scrollbar {
+        width: 0;
+        height: 0;
+        background: transparent;
+    }
+    .home .homeContent::-webkit-scrollbar-thumb {
+        width: 0;
+        height: 0;
+        background: transparent;
+    }
+    .home .homeContent::-webkit-scrollbar-track {
+        width: 0;
+        height: 0;
+        background: transparent;
+    }
+    .homeContent .homeCards {
+        flex-direction: column;
+    }
+    .homeContent .aboutMe, 
+    .homeContent .myServices {
+        width: 85%;
+        height: fit-content;
+        margin: 15px auto;
+    }
+    .homeContent .myServices {
+        margin: 15px auto 125px !important;
+    }
+    .homeContent .aboutMe .personalityInfoContent, 
+    .homeContent .myServices .personalityInfoContent {
+        flex-direction: column;
+        margin-bottom: 25px;
+    }
+    .homeContent .aboutMe .actionCallBtn, 
+    .homeContent .myServices .actionCallBtn {
+        width: 100%;
+    }
+    .aboutMe .personalityInfoContent .textSection, 
+    .myServices .personalityInfoContent .textSection {
+        padding: 0 20px;
+    }
+    .homeContent .aboutMe .actionCallBtn a, 
+    .homeContent .myServices .actionCallBtn a {
+        width: 50px;
+        height: 50px;
+    }
+    .homeContent .aboutMe .actionCallBtn a ion-icon, 
+    .homeContent .myServices .actionCallBtn a ion-icon {
+        font-size: 1.75em;
+    }
+    .homeContent .aboutMe .actionCallBtn a img, 
+    .homeContent .myServices .actionCallBtn a img {
+        width: 25px;
+    }
+}

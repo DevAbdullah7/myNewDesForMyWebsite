@@ -1,0 +1,116 @@
+@media only screen and (max-width: 1500px) {
+    html {
+        overflow-y: scroll;
+    }
+    html::-webkit-scrollbar {
+        width: 0;
+        height: 0;
+        background: transparent;
+    }
+    html::-webkit-scrollbar-thumb {
+        width: 0;
+        height: 0;
+        background: transparent;
+    }
+    html::-webkit-scrollbar-track {
+        width: 0;
+        height: 0;
+        background: transparent;
+    }
+    body {
+        overflow: scroll;
+    }
+    body::-webkit-scrollbar {
+        width: 0;
+        height: 0;
+        background: transparent;
+    }
+    body::-webkit-scrollbar-thumb {
+        width: 0;
+        height: 0;
+        background: transparent;
+    }
+    body::-webkit-scrollbar-track {
+        width: 0;
+        height: 0;
+        background: transparent;
+    }
+    .content {
+    }
+    .home .logo {
+        margin: 50px 0;
+    }
+    .home img {
+        width: 150px;
+    }
+    .home .homeContent::-webkit-scrollbar {
+        width: 0;
+        height: 0;
+        background: transparent;
+    }
+    .home .homeContent::-webkit-scrollbar-thumb {
+        width: 0;
+        height: 0;
+        background: transparent;
+    }
+    .home .homeContent::-webkit-scrollbar-track {
+        width: 0;
+        height: 0;
+        background: transparent;
+    }
+    .homeContent .homeCards {
+        flex-direction: column;
+    }
+    .homeContent .aboutMe, 
+    .homeContent .myServices {
+        width: 80%;
+        /* height: fit-content; */
+        margin: 15px auto;
+    }
+    .homeContent .myServices {
+        margin: 15px auto 125px !important;
+    }
+    .homeContent .aboutMe .personalityInfoContent, 
+    .homeContent .myServices .personalityInfoContent {
+        /* flex-direction: column; */
+        margin-bottom: 25px;
+    }
+    .aboutMe .personalityInfoContent .demoInfo, 
+    .myServices .personalityInfoContent .demoInfo {
+        /* width: 100%; */
+        /* display: flex; */
+    }
+    .homeContent .aboutMe .actionCallBtn, 
+    .homeContent .myServices .actionCallBtn {
+        /* position: relative; */
+        width: 85%;
+        margin: 0 auto 25px;
+    }
+    .aboutMe .personalityInfoContent .textSection, 
+    .myServices .personalityInfoContent .textSection {
+        margin: 25px 0;
+        padding: 0 20px;
+    }
+    .aboutMe .demoInfo .row img {
+        width: 65%;
+    }
+    .content.Arabic .myServices .personalityServContent .service:nth-child(2) h2 {
+        width: 50%;
+    }
+    .myServices .personalityServContent .service h2 {
+        width: 50%;
+    }
+    .myServices .personalityServContent .service img {
+        width: 25%;
+    }
+}
+
+@media only screen and (min-width: 1920px) {
+    .myServices .personalityServContent .service span {
+        width: 200px;
+        height: 200px;
+    }
+    .myServices .personalityServContent .service h2 {
+        font-size: 1.25em;
+    }
+}

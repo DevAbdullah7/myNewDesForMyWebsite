@@ -1,0 +1,661 @@
+@font-face {
+    font-family: 'englishFont';
+    src: url('../../res/fonts/Comfortaa-VariableFont_wght.ttf');
+    font-style: normal;
+}
+@font-face {
+    font-family: 'arabicFont';
+    src: url('../../res/fonts/Tajawal-Regular.ttf');
+    font-style: normal;
+}
+.A {
+    font-family: 'arabicFont';
+}
+.E {
+    font-family: 'englishFont';
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    overflow: hidden;
+}
+body {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
+    transition: 0.5s;
+}
+
+/* Nav Section */
+.nav {
+    width: 100vw;
+    height: 70px;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    background-color: #fefefe;
+    z-index: 1000;
+    transition: 0.5s;
+}
+.nav.dark {
+    background-color: #585858;
+}
+.nav::after {
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 10px;
+    top: -10px;
+    background-color: #e6e6e6;
+    z-index: -1;
+    transition: 0.5s;
+}
+.nav.dark::after {
+    background-color: #414141;
+}
+.nav ul {
+    width: 95vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.nav ul li {
+    position: relative;
+    height: 100%;
+    list-style: none;
+    z-index: 1;
+}
+.nav ul li,
+.nav ul li a {
+    width: calc(95vw / 5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    text-decoration: none;
+}
+.nav ul li .icon {
+    position: relative;
+    display: block;
+    line-height: 75px;
+    font-size: 1.5em;
+    font-weight: 500;
+    text-align: center;
+    transition: 0.5s;
+    color: #585858;
+    filter: drop-shadow(0 0 5px rgba(0 0 0 / 15%));
+    transition: 0.5s;
+    cursor: pointer;
+}
+.nav ul li .icon:hover {
+    font-size: 1.85em;
+}
+.nav.dark ul li .icon {
+    color: #e6e6e6;
+}
+.nav.English ul li .pageName .A {
+    display: none;
+}
+.nav.Arabic ul li .pageName .E {
+    display: none;
+}
+.nav.light ul li#Mood .icon .darkMood, 
+.nav.light ul li#Mood .pageName .darkMood {
+    display: none;
+}
+.nav.dark ul li#Mood .icon .lightMood, 
+.nav.dark ul li#Mood .pageName .lightMood {
+    display: none;
+}
+
+.nav ul a.active .icon {
+    font-size: 2em;
+    transform: translateY(-32px);
+    cursor: default;
+}
+.nav ul li .icon ion-icon {
+    position: relative;
+}
+.nav #indicator {
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    top: -50%;
+    transform: rotate(45deg);
+    border-radius: 15px;
+    background-color: #fefefe;
+    border: 5px solid #e6e6e6;
+    transition: 0.5s;
+}
+.nav.dark #indicator {
+    background-color: #585858;
+    border: 5px solid #414141;
+}
+.nav #indicator::before {
+    position: absolute;
+    content: '';
+    bottom: -41%;
+    left: -8px;
+    width: 25px;
+    height: 25px;
+    transform: rotate(-50deg);
+    background: transparent;
+    border-top-right-radius: 25px;
+    box-shadow: 0px -10px 0 0 #e6e6e6;
+    transition: 0.5s;
+    z-index: -1;
+}
+.nav.dark #indicator::before {
+    box-shadow: 0px -10px 0 0 #414141;
+}
+.nav #indicator::after {
+    position: absolute;
+    content: '';
+    top: -14%;
+    right: -25px;
+    width: 25px;
+    height: 25px;
+    transform: rotate(50deg);
+    background: transparent;
+    border-bottom-left-radius: 25px;
+    box-shadow: -10px 0px 0 0 #e6e6e6;
+    transition: 0.5s;
+    z-index: -1;
+}
+.nav.dark #indicator::after {
+    box-shadow: -10px 0px 0 0 #414141;
+}
+.nav.Arabic #indicator.active2 {
+    transform: translateX(calc((95vw / 5) * 0));
+}
+.nav.Arabic #indicator.active1 {
+    transform: translateX(calc((95vw / 5) * 1));
+}
+.nav.Arabic #indicator.active0 {
+    transform: translateX(calc((95vw / 5) * 2));
+}
+.nav.English #indicator.active2 {
+    transform: translateX(calc((-95vw / 5) * 0));
+}
+.nav.English #indicator.active1 {
+    transform: translateX(calc((-95vw / 5) * 1));
+}
+.nav.English #indicator.active0 {
+    transform: translateX(calc((-95vw / 5) * 2));
+}
+.nav ul li .pageName {
+    position: absolute;
+    transform: translateY(75px);
+    color: #333;
+    font-size: 0.85em;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    transition: 0.5s;
+    opacity: 0;
+}
+.nav.dark ul li .pageName {
+    color: #e6e6e6;
+}
+.nav ul a.active .pageName {
+    opacity: 1;
+    transform: translateY(20px);
+} 
+
+/* Content Section */
+.content {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    transition: 0.5s;
+}
+.home {
+    width: 100%;
+    height: 85%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+}
+.home .logo {
+    position: relative;
+    width: 175px;
+    height: 175px;
+    margin: 50px 0px 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+}
+.home .logo:hover {
+    transform: scale(1.1);
+}
+.home .logo img {
+    width: 170px;
+    transform: translateY(-7.5px);
+    filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.15));
+    transition: 0.5s;
+}
+.home .logo img.dark {
+    display: none;
+}
+.content.dark .home .logo img {
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.15));
+}
+.content.dark .home .logo img.light {
+    display: none;
+}
+.content.dark .home .logo img.dark {
+    display: block;
+}
+.content .logo span {
+    position: absolute;
+    width: 90%;
+    height: 90%;
+    top: 5%;
+    border-radius: 25px;
+    box-shadow:  15px -15px 35px #ffffff,
+            -15px 15px 35px #bebebe;
+    transform: rotate(-45deg);
+    transition: 0.75s;
+}
+.content.English .logo span {
+    transform: rotate(45deg);
+}
+.content.dark .logo span {
+    box-shadow:  15px -15px 35px #4b4b4b,
+            -15px 15px 35px #373737;
+}
+.content .logo:hover span {
+    transform: scale(1.1) rotate(0deg);
+}
+.home .homeContent {
+    position: relative;
+    width: 100%;
+}
+.homeContent .aboutMe,
+.homeContent .myServices {
+    position: relative;
+    width: 45%;
+    height: 50vh;
+    padding: 10px;
+    border-radius: 15px;
+    box-shadow:  -15px -15px 40px #ffffff,
+                15px 15px 40px #bebebe;
+    transition: 0.5s;
+}
+
+.content.dark .homeContent .aboutMe,
+.content.dark .homeContent .myServices {
+    box-shadow:  -15px -15px 40px #4b4b4b,
+                15px 15px 40px #373737;
+}
+.homeContent .homeCards {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 50px;
+}
+.homeContent .personalityInfo {
+    position: relative;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+}
+.content.Arabic .homeContent .personalityInfo.E {
+    display: none;
+}
+.content.English .homeContent .personalityInfo.A {
+    display: none;
+}
+.homeContent .aboutMe h1,
+.homeContent .myServices h1 {
+    font-size: 1.4em;
+    font-weight: bolder;
+    margin: 5px 0 15px;
+    color: #585858;
+    transition: 0.5s;
+}
+.content.dark .homeContent .aboutMe h1,
+.content.dark .homeContent .myServices h1 {
+    color: #e6e6e6;
+}
+.homeContent .aboutMe .personalityInfoContent,
+.homeContent .myServices .personalityServContent {
+    width: 100%;
+    display: flex;
+}
+.homeContent .aboutMe .personalityInfoContent {
+    height: 100%;
+}
+.aboutMe .personalityInfoContent .demoInfo,
+.myServices .personalityInfoContent .demoInfo {
+    width: 35%;
+    transition: 0.5s;
+    color: #585858;
+}
+.aboutMe .personalityInfoContent .textSection,
+.myServices .personalityInfoContent .textSection {
+    position: relative;
+    width: 75%;
+    height: 100%;
+    font-size: 1.25em;
+    line-height: 1.4;
+    transition: 0.5s;
+    color: #585858;
+}
+.content.dark .aboutMe .personalityInfoContent .demoInfo,
+.content.dark .myServices .personalityInfoContent .demoInfo,
+.content.dark .aboutMe .personalityInfoContent .textSection,
+.content.dark .myServices .personalityInfoContent .textSection {
+    color: #e6e6e6;
+}
+.aboutMe .demoInfo .row,
+.myServices .row {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+}
+.aboutMe .demoInfo .row:nth-child(1) {
+    padding: 0 15px;
+    margin-bottom: 40px;
+}
+.aboutMe .demoInfo .row img {
+    width: 75%;
+    border-radius: 25px;
+    box-shadow:  7.5px -7.5px 20px #ffffff,
+        -7.5px 7.5px 20px #bebebe;
+    transition: 0.5s;
+}
+.content.light .demoInfo .row img.light,
+.content.dark .demoInfo .row img.dark {
+    display: none;
+}
+.content.dark .aboutMe .demoInfo .row img {
+    box-shadow:  -7px -7px 10px #4b4b4b,
+                5px 5px 15px #373737;
+}
+.homeContent .aboutMe .icon,
+.homeContent .myServices .icon {
+    font-size: 1.5em;
+    margin: 0 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+}
+.homeContent .aboutMe .text,
+.homeContent .myServices .text {
+    font-size: 1.1em;
+}
+.content.dark .homeContent .aboutMe .icon {
+}
+.homeContent .myServices .personalityServContent {
+    min-height: 50%;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 5%;
+    padding: 15px 20px 35px;
+}
+.myServices .personalityServContent .service {
+    position: relative;
+    width: calc(90% / 3);
+    height: 100%;
+    padding: 30px 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transition: 0.5s;
+}
+.myServices .personalityServContent .service:hover {
+    justify-content: center;
+    transform: scale(1.1);
+}
+.myServices .personalityServContent .service span {
+    position: absolute;
+    width: 165px;
+    height: 165px;
+    border-radius: 25px;
+    box-shadow:  15px -15px 35px #ffffff,
+    -15px 15px 35px #bebebe;
+    transform: rotate(45deg);
+    transition: 0.5s;
+    z-index: -1;
+}
+.content.dark .myServices .personalityServContent .service span {
+    box-shadow:  15px -15px 35px #4b4b4b,
+    -15px 15px 35px #373737;
+}
+.myServices .personalityServContent .service:hover span {
+    transform: rotate(0deg);
+}
+.myServices .personalityServContent .service img {
+    transform: translateY(-7.5px);
+    width: 35%;
+    margin-bottom: 15px;
+}
+.myServices .personalityServContent .service:nth-child(2) img {
+    transform: translateY(-15px);
+}
+.content.light .myServices .personalityServContent .service img.light,
+.content.dark .myServices .personalityServContent .service img.dark {
+    display: none;
+}
+.myServices .personalityServContent .service h2 {
+    width: 75%;
+    transform: translateY(-10px);
+    text-align: center;
+    font-size: 1em;
+    color: #585858;
+    font-weight: 400;
+    transition: 0.25s;
+}
+.content.Arabic .myServices .personalityServContent .service:nth-child(2) h2 {
+    width: 80%;
+}
+.myServices .personalityServContent .service:hover h2 {
+    transform: translateY(-5px);
+}
+.content.dark .myServices .personalityServContent .service h2 {
+    color: #e6e6e6;
+}
+.myServices .actionCallServicesBtn {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    padding: 0 15px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.myServices .actionCallServicesBtn > p {
+    font-size: 1.25em;
+    color: #585858;
+    transition: 0.5s;
+}
+.content.dark .myServices .actionCallServicesBtn > p {
+    color: #e6e6e6;
+}
+.myServices .actionCallServicesBtn .servicesContactInfo {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.myServices .row {
+    width: 50%;
+    margin: 15px 0 17.5px;
+}
+.myServices .row:nth-child(1) {
+    justify-content: flex-end;
+}
+.myServices .row:nth-child(2) {
+}
+.myServices .actionCallServicesBtn .row a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #585858;
+    transition: 0.5s;
+}
+.myServices .actionCallServicesBtn .row:nth-child(1) a {
+    direction: ltr;
+}
+.content.English .myServices .actionCallServicesBtn .row:nth-child(1) a {
+    direction: rtl;
+}
+.content.dark .myServices .actionCallServicesBtn .row a {
+    color: #e6e6e6;
+}
+.myServices .actionCallServicesBtn .row a .contactIcon {
+    width: 32.5px;
+    height: 32.5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 15px;
+    border-radius: 5px;
+    box-shadow: 
+        5px -5px 10px #ffffff, 
+            -5px 5px 10px #bebebe;
+    transform: rotate(-45deg);
+    transition: 0.35s;
+}
+.content.dark .myServices .actionCallServicesBtn .row a .contactIcon {
+    box-shadow: 
+        5px -5px 10px #4b4b4b, 
+            -5px 5px 10px #373737;
+}
+.myServices .actionCallServicesBtn .row a:hover .contactIcon {
+    transform: rotate(0deg) scale(1.25);
+}
+.myServices .actionCallServicesBtn .row a .contactIcon ion-icon {
+    font-size: 1.25em;
+}
+.homeContent .aboutMe .actionCallBtn {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 20px 0;
+    transition: 0.5s;
+}
+/* .content.Arabic .homeContent .aboutMe .actionCallBtn,
+.content.Arabic .homeContent .myServices .actionCallBtn {
+    right: calc(40% + 25px);
+}
+.content.English .homeContent .aboutMe .actionCallBtn,
+.content.English .homeContent .myServices .actionCallBtn {
+    left: calc(40% + 25px);
+} */
+.homeContent .aboutMe .actionCallBtn a {
+    position: relative;
+    text-decoration: none;
+    width: 75px;
+    height: 75px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 20px;
+    color: #333;
+    text-align: center;
+    border-radius: 15px;
+    transform: rotate(-45deg);
+    box-shadow: 10px -10px 25px #ffffff, 
+    -10px 10px 25px #bebebe;
+    transition: 0.5s;
+}
+.homeContent .aboutMe .actionCallBtn a:hover,
+.homeContent .myServices .actionCallBtn a:hover {
+    transform: scale(1.1);
+}
+.content.dark .homeContent .aboutMe .actionCallBtn a,
+.content.dark .homeContent .myServices .actionCallBtn a {
+    box-shadow: 10px -10px 25px #4b4b4b, 
+        -10px 10px 25px #373737;
+}
+.content.English .homeContent .aboutMe .actionCallBtn a,
+.content.English .homeContent .myServices .actionCallBtn a {
+    transform: rotate(45deg);
+}
+.content.English .homeContent .aboutMe .actionCallBtn a:hover,
+.content.English .homeContent .myServices .actionCallBtn a:hover {
+    transform: scale(1.1);
+}
+.homeContent .aboutMe .actionCallBtn a p,
+.homeContent .myServices .actionCallBtn a p {
+    position: absolute;
+    width: 100%;
+    top: 57.5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: 0.5s;
+}
+.homeContent .aboutMe .actionCallBtn a img,
+.homeContent .myServices .actionCallBtn a img {
+    width: 30px;
+    transition: 0.5s;
+}
+.homeContent .aboutMe .actionCallBtn a img.dark,
+.homeContent .myServices .actionCallBtn a img.dark {
+    display: none;
+}
+.content.dark .homeContent .aboutMe .actionCallBtn a img.light, 
+.content.dark .homeContent .myServices .actionCallBtn a img.light {
+    display: none;
+}
+.content.dark .homeContent .aboutMe .actionCallBtn a img.dark, 
+.content.dark .homeContent .myServices .actionCallBtn a img.dark {
+    display: block;
+}
+.homeContent .aboutMe .actionCallBtn a ion-icon,
+.homeContent .myServices .actionCallBtn a ion-icon {
+    font-size: 2.45em;
+    color: #585858;
+}
+.content.dark .homeContent .aboutMe .actionCallBtn a ion-icon,
+.content.dark .homeContent .myServices .actionCallBtn a ion-icon {
+    color: #e6e6e6;
+}
+.homeContent .myServices .actionCallBtn a.twitter ion-icon {
+    transform: rotate(35deg);
+}
+.content.English .homeContent .myServices .actionCallBtn a.twitter ion-icon {
+    transform: rotate(20deg);
+}
+.homeContent .aboutMe .actionCallBtn a.whatsApp ion-icon {
+    transform: rotate(-45deg);
+    transition: 0.5s;
+}
+.homeContent .aboutMe .actionCallBtn a.whatsApp:hover ion-icon {
+    transform: rotate(0deg);
+}
+.content.English .homeContent .aboutMe .actionCallBtn a.whatsApp ion-icon {
+    transform: rotate(225deg);
+}
+.content.English .homeContent .aboutMe .actionCallBtn a.whatsApp:hover ion-icon {
+    transform: rotate(360deg);
+}
+.content.dark .homeContent .aboutMe .actionCallBtn a,
+.content.dark .homeContent .myServices .actionCallBtn a,
+.content.dark .homeContent .aboutMe .actionCallBtn a p,
+.content.dark .homeContent .myServices .actionCallBtn a p {
+    color: #e6e6e6;
+}

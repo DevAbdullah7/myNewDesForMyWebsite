@@ -1,0 +1,88 @@
+@media only screen and (max-width: 768px) {
+    html {
+        overflow-y: scroll;
+    }
+    body {
+        overflow: scroll;
+    }
+    .content {
+    }
+    .home .logo {
+        margin: 50px 0;
+    }
+    .home img {
+        width: 150px;
+    }
+    .home .homeContent::-webkit-scrollbar {
+        width: 0;
+        height: 0;
+        background: transparent;
+    }
+    .home .homeContent::-webkit-scrollbar-thumb {
+        width: 0;
+        height: 0;
+        background: transparent;
+    }
+    .home .homeContent::-webkit-scrollbar-track {
+        width: 0;
+        height: 0;
+        background: transparent;
+    }
+    .homeContent .homeCards {
+        flex-direction: column;
+    }
+    .homeContent .aboutMe, 
+    .homeContent .myServices {
+        width: 75%;
+        height: 62.5vh;
+        margin: 15px auto;
+    }
+    .homeContent .myServices {
+        margin: 15px auto 125px !important;
+    }
+    .homeContent .aboutMe .personalityInfoContent, 
+    .homeContent .myServices .personalityInfoContent {
+        flex-direction: column;
+        margin-bottom: 25px;
+    }
+    .aboutMe .personalityInfoContent .demoInfo, 
+    .myServices .personalityInfoContent .demoInfo {
+        display: block;
+        transform: translateX(-105%);
+        width: 45%;
+        padding: 25px 0;
+    }
+    .aboutMe .demoInfo .row:nth-child(1) {
+        position: absolute;
+        width: 200%;
+        top: 0;
+        transform: translateX(52%);
+        margin-bottom: 40px;
+        padding: 0 15px;
+    }
+    .aboutMe .demoInfo .row img {
+        width: 50%;
+    }
+    .homeContent .aboutMe .actionCallBtn, 
+    .homeContent .myServices .actionCallBtn {
+        position: absolute;
+        width: calc(100% - 40px);
+        bottom: 20px;
+        justify-content: center;
+        margin: 0 auto;
+    }
+    .aboutMe .personalityInfoContent .textSection, 
+    .myServices .personalityInfoContent .textSection {
+        position: unset;
+        padding: 0 20px;
+    }
+    .homeContent .aboutMe .actionCallBtn a, 
+    .homeContent .myServices .actionCallBtn a {
+        width: 65px;
+        height: 65px;
+    }
+    .homeContent .aboutMe .actionCallBtn a ion-icon, 
+    .homeContent .myServices .actionCallBtn a ion-icon {
+        font-size: 2.25em;
+    }
+}
